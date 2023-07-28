@@ -42,6 +42,7 @@ static const char *vvas_xmodelclass[VVAS_XCLASS_NOTFOUND + 1] = {
   [VVAS_XCLASS_ROADLINE] = "ROADLINE",
   [VVAS_XCLASS_ULTRAFAST] = "ULTRAFAST",
   [VVAS_XCLASS_RAWTENSOR] = "RAWTENSOR",
+  [VVAS_XCLASS_YOLOVX] = "YOLOVX",
 
   /* Add model above this */
   [VVAS_XCLASS_NOTFOUND] = ""

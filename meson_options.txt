@@ -52,3 +52,5 @@ option('SEGMENTATION', type: 'string', value: '1',
        description: 'Enable disable SEGMENTATION models')
 option('RAWTENSOR', type: 'string', value: '1',
        description: 'Enable disable RAWTENSOR models')
+option('YOLOVX', type: 'string', value: '1',
+      description: 'Enable disable YOLOVX models')

@@ -246,6 +246,16 @@ else
   rawtensor_dep = []
 endif
 
+#ADD YOLOVX
+if get_option('YOLOVX') != '0'
+  yolox_dep = cc.find_library('vitis_ai_library-yolovx')
+  dpuinfer_sources += [
+    'vvas_yolovx.cpp',
+  ]
+else
+  yolox_dep = []
+endif
+
 protobuf_dep = cc.find_library('protobuf')
 glog_dep = cc.find_library('glog')
 jansson_dep = dependency('jansson', version : '>= 2.7', required: true)
@@ -258,7 +268,7 @@ vvascore_dpuinfer = library('vvascore_dpuinfer-' + core_version,
   dpuinfer_sources,
   cpp_args : [vvas_core_args, '-std=c++17'],
   include_directories : [configinc, core_common_inc, core_utils_inc],
-  dependencies : [xrt_dep, core_common_dep, core_utils_dep, jansson_dep, opencv_dep, dpuinfer_dep, protobuf_dep, glog_dep, classi_dep, vehicleclassi_dep, yolov2_dep, yolov3_dep, refinedet_dep, platedetect_dep, platenum_dep, facedetect_dep, effdetd2_dep, bcc_dep, ssd_dep, tfssd_dep, ultrafast_dep, roadline_dep, facefeat_dep, facelandmark_dep, posedetect_dep, reid_dep, segmentation_dep, rawtensor_dep],
+  dependencies : [xrt_dep, core_common_dep, core_utils_dep, jansson_dep, opencv_dep, dpuinfer_dep, protobuf_dep, glog_dep, classi_dep, vehicleclassi_dep, yolov2_dep, yolov3_dep, refinedet_dep, platedetect_dep, platenum_dep, facedetect_dep, effdetd2_dep, bcc_dep, ssd_dep, tfssd_dep, ultrafast_dep, roadline_dep, facefeat_dep, facelandmark_dep, posedetect_dep, reid_dep, segmentation_dep, rawtensor_dep, yolox_dep],
   install : true,
 )
 

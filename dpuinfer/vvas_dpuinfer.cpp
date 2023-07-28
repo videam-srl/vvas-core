@@ -97,6 +97,9 @@
 #ifdef ENABLE_RAWTENSOR
 #include "vvas_rawtensor.hpp"
 #endif
+#ifdef ENABLE_YOLOVX
+#include "vvas_yolovx.hpp"
+#endif
 
 using namespace cv;
 using namespace std;
@@ -557,6 +560,13 @@ vvas_xinitmodel (VvasDpuInferPrivate * kpriv, int modelclass)
     case VVAS_XCLASS_RAWTENSOR:
     {
       model = new vvas_rawtensor (kpriv, kpriv->elfname);
+      break;
+    }
+#endif
+#ifdef ENABLE_YOLOVX
+    case VVAS_XCLASS_YOLOVX:
+    {
+      model = new vvas_yolovx (kpriv, kpriv->elfname, kpriv->need_preprocess);
       break;
     }
 #endif

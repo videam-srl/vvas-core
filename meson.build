@@ -236,6 +236,11 @@ if get_option('RAWTENSOR') != '0'
   add_project_arguments('-DENABLE_RAWTENSOR', language : 'cpp')
 endif
 
+if get_option('YOLOVX') != '0'
+  add_project_arguments('-DENABLE_YOLOVX', language : 'c')
+  add_project_arguments('-DENABLE_YOLOVX', language : 'cpp')
+endif
+
 #include directories
 subdir('utils')
 subdir('common')
